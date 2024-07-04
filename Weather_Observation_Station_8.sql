@@ -16,43 +16,5 @@ SELECT DISTINCT
 FROM
     STATION
 WHERE
-    (
-        CITY LIKE 'a%'
-        AND CITY LIKE '%a'
-    )
-    OR (
-        CITY LIKE 'e%'
-        AND CITY LIKE '%e'
-    )
-    OR (
-        CITY LIKE 'i%'
-        AND CITY LIKE '%i'
-    )
-    OR (
-        CITY LIKE 'o%'
-        AND CITY LIKE '%o'
-    )
-    OR (
-        CITY LIKE 'u%'
-        AND CITY LIKE '%u'
-    )
-    OR (
-        CITY LIKE 'A%'
-        AND CITY LIKE '%A'
-    )
-    OR (
-        CITY LIKE 'E%'
-        AND CITY LIKE '%E'
-    )
-    OR (
-        CITY LIKE 'I%'
-        AND CITY LIKE '%I'
-    )
-    OR (
-        CITY LIKE 'O%'
-        AND CITY LIKE '%O'
-    )
-    OR (
-        CITY LIKE 'U%'
-        AND CITY LIKE '%U'
-    )
+    REGEXP_LIKE (LOWER(CITY), '^[aeiou]')
+    and REGEXP_LIKE (LOWER(CITY), '[aeiou]$');
